@@ -10,30 +10,19 @@
   <div class="container">
     <h1>Event Management</h1>
     <img src="https://img.freepik.com/premium-vector/couple-planning-their-wedding-day-illustration_854078-308.jpg?w=826">
-      <input type="text" id="event-name" placeholder="Enter event name" />
-      <input type="date" id="event-date" />
-      <button onclick="addEvent()">Add Event</button>
-    </div>
+    <!-- Display user name -->
+    <p>Welcome, <span id="user-name"></span>!</p>
 
     <h2>Upcoming Events</h2>
-    <ul id="event-list">
-      <!-- Event list will be dynamically inserted here -->
-    </ul>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuoID4I9iXNNylbYNw-R1UaLfttd1bHWpYXw&s">
+    <br/>
+    <input type="text" id="event-name" placeholder="Enter event name" />
+    <input type="date" id="event-date" />
+    <input type="datetime-local" id="event-reminder" />
+    <button onclick="addEvent()">Add Event</button>
+    
+    <ul id="event-list"></ul>
   </div>
-<!-- Event Name -->
-<input type="text" id="event-name" placeholder="Event Name" />
-
-<!-- Event Date -->
-<input type="date" id="event-date" />
-
-<!-- Reminder Date -->
-<input type="datetime-local" id="event-reminder" />
-
-<!-- Button to add event -->
-<button onclick="addEvent()">Add Event</button>
-
-<!-- List of events -->
-<ul id="event-list"></ul>
 
   <script src="script.js"></script>
 </body>
