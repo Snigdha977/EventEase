@@ -18,12 +18,14 @@ function addEvent() {
   const eventName = document.getElementById('event-name').value;
   const eventDate = document.getElementById('event-date').value;
   const eventReminder = document.getElementById('event-reminder').value;
+  const eventLocation = document.getElementById('event-location').value;
 
-  if (eventName && eventDate && eventReminder) {
+  if (eventName && eventDate && eventReminder && eventLocation) {
     const newEvent = {
       name: eventName,
       date: eventDate,
-      reminder: eventReminder
+      reminder: eventReminder,
+      location: eventLocation
     };
     events.push(newEvent);
 
@@ -31,11 +33,12 @@ function addEvent() {
     document.getElementById('event-name').value = '';
     document.getElementById('event-date').value = '';
     document.getElementById('event-reminder').value = '';
+    document.getElementById('event-location').value = '';
 
     renderEvents();
     setReminder(newEvent);
   } else {
-    alert('Please enter all fields: event name, date, and reminder.');
+    alert('Please enter all fields: event name, date, reminder, and location.');
   }
 }
 
@@ -55,6 +58,7 @@ function renderEvents() {
     li.innerHTML = `
       <span>${event.name} - ${event.date}</span>
       <span>Reminder: ${event.reminder}</span>
+      <span>Location: ${event.location}</span>
       <button onclick="deleteEvent(${index})">Delete</button>
     `;
     eventList.appendChild(li);
@@ -76,6 +80,13 @@ function setReminder(event) {
     // Set the alarm with a delay
     setTimeout(() => {
       alert(`Reminder: ${event.name} is coming up!`);
+
+      // Open Google Maps at the location of the event
+      const encodedLocation = encodeURIComponent(event.location);
+      const mapsUrl = `https://www.google.co.in/maps/@23.2572665,87.8467508,17z?entry=ttu&g_ep=EgoyMDI1MDEwOC4wIKXMDSoASAFQAw%3D%3D?q=${encodedLocation}`;
+      
+      // Open Google Maps in a new tab
+      window.open(mapsUrl, '_blank');
     }, timeUntilReminder);
   } else {
     alert('The reminder time must be in the future!');
