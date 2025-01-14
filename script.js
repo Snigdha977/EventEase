@@ -1,4 +1,17 @@
 let events = [];
+document.addEventListener('DOMContentLoaded', function () {
+  // Fetch user data from localStorage
+  const userName = localStorage.getItem("userName");
+  const userEmail = localStorage.getItem("userEmail");
+
+  // If user is logged in, display their name; otherwise, show a default message
+  if (userName && userEmail) {
+      document.getElementById("user-name").textContent = userName;
+  } else {
+      // Optionally, redirect to the login page if no user is found in localStorage
+      window.location.href = "login.html"; // Replace with your actual login page URL
+  }
+});
 
 // Function to add an event
 function addEvent() {
