@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - EventEase</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <h1>EventEase - Register</h1>
+        <nav>
+            <a href="index.html">Event main page</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Create an Account</h2>
+            <form id="register-form">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Sign In</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 EventEase. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the page from reloading
+            alert("Registration Successful! Redirecting to Login Page.");
+            window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
